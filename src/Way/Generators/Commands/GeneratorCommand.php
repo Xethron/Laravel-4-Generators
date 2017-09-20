@@ -5,7 +5,7 @@ use Symfony\Component\Console\Input\InputArgument;
 use Illuminate\Console\Command;
 use Way\Generators\Filesystem\FileAlreadyExists;
 use Way\Generators\Generator;
-use Config;
+use \Illuminate\Support\Facades\Config as Config;
 
 abstract class GeneratorCommand extends Command {
 

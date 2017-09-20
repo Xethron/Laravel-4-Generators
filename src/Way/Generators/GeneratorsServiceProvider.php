@@ -75,7 +75,7 @@ class GeneratorsServiceProvider extends ServiceProvider {
      */
     public function registerConfig()
     {
-        $userConfigFile    = $this->app->configPath().'/generators.config.php';
+        $userConfigFile    = config_path().'/generators.config.php';
         $packageConfigFile = __DIR__.'/../../config/config.php';
         $config            = $this->app['files']->getRequire($packageConfigFile);
 
