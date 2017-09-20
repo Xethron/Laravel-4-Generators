@@ -3,7 +3,8 @@
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
-use File, Config;
+use File;
+use \Illuminate\Support\Facades\Config as Config;
 
 class PublishTemplatesCommand extends Command {
 
