@@ -3,7 +3,7 @@
 use Illuminate\Support\Str;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
-use Config;
+use \Illuminate\Support\Facades\Config as Config;
 
 class SeederGeneratorCommand extends GeneratorCommand {
 
