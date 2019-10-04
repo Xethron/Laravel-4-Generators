@@ -1,6 +1,8 @@
 <?php namespace Way\Generators\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 
@@ -40,7 +42,7 @@ class PivotGeneratorCommand extends Command {
      */
     public function sortDesiredTables()
     {
-        $tables = array_except(array_map('str_singular', $this->argument()), 'command');
+        $tables = Arr::except(array_map('Illuminate\Support\Str::singular', $this->argument()), 'command');
 
         sort($tables);
 
@@ -58,9 +60,9 @@ class PivotGeneratorCommand extends Command {
     {
         return implode(', ', [
             "{$tableOne}_id:integer:unsigned:index",
-            "{$tableOne}_id:foreign:references('id'):on('" . str_plural($tableOne) . "'):onDelete('cascade')",
+            "{$tableOne}_id:foreign:references('id'):on('" . Str::plural($tableOne) . "'):onDelete('cascade')",
             "{$tableTwo}_id:integer:unsigned:index",
-            "{$tableTwo}_id:foreign:references('id'):on('" . str_plural($tableTwo) . "'):onDelete('cascade')",
+            "{$tableTwo}_id:foreign:references('id'):on('" . Str::plural($tableTwo) . "'):onDelete('cascade')",
         ]);
     }
 

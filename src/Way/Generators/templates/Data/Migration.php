@@ -1,6 +1,7 @@
 <?php namespace Way\Generators\Templates\Data;
 
 use App;
+use Illuminate\Support\Str;
 use Way\Generators\Parsers\MigrationFieldsParser;
 use Way\Generators\Parsers\MigrationNameParser;
 
@@ -78,7 +79,7 @@ class Migration {
      */
     private function getClass()
     {
-        return ucwords(camel_case($this->migrationName));
+        return ucwords(Str::camel($this->migrationName));
     }
 
     /**
@@ -115,4 +116,4 @@ class Migration {
         return App::make('Way\Generators\SchemaCreator');
     }
 
-} 
+}

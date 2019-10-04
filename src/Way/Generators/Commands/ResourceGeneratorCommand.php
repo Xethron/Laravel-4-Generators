@@ -1,6 +1,7 @@
 <?php namespace Way\Generators\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Str;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 
@@ -53,7 +54,7 @@ class ResourceGeneratorCommand extends Command {
      */
     protected function getModelName($resource)
     {
-        return ucwords(str_singular(camel_case($resource)));
+        return ucwords(Str::singular(Str::camel($resource)));
     }
 
     /**
@@ -64,7 +65,7 @@ class ResourceGeneratorCommand extends Command {
      */
     protected function getControllerName($resource)
     {
-        return ucwords(str_plural(camel_case($resource))) . 'Controller';
+        return ucwords(Str::plural(Str::camel($resource))) . 'Controller';
     }
 
     /**
@@ -75,7 +76,7 @@ class ResourceGeneratorCommand extends Command {
      */
     protected function getTableName($resource)
     {
-        return str_plural($resource);
+        return Str::plural($resource);
     }
 
     /**
@@ -86,7 +87,7 @@ class ResourceGeneratorCommand extends Command {
      */
     protected function getMigrationName($resource)
     {
-        return "create_" . str_plural($resource) . "_table";
+        return "create_" . Str::plural($resource) . "_table";
     }
 
     /**
@@ -165,7 +166,7 @@ class ResourceGeneratorCommand extends Command {
      */
     protected function callSeeder($resource)
     {
-        $tableName = str_plural($this->getModelName($resource));
+        $tableName = Str::plural($this->getModelName($resource));
 
         if ($this->confirm("Would you like a '$tableName' table seeder? [yes|no]"))
         {

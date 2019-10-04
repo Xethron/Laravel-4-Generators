@@ -1,5 +1,7 @@
 <?php namespace Way\Generators\Templates\Data;
 
+use Illuminate\Support\Str;
+
 class Controller {
 
     /**
@@ -62,7 +64,7 @@ class Controller {
      */
     private function getResource()
     {
-        return str_singular($this->getCollection()); // lesson
+        return Str::singular($this->getCollection()); // lesson
     }
 
     /**
@@ -85,4 +87,4 @@ class Controller {
         return 'App\Http\Controllers';
     }
 
-} 
+}
